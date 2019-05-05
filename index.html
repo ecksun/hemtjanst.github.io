@@ -30,7 +30,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Private</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         Hemtjänst does not require an internet connection to function,
                         or a subscription to a cloud service. It's a local-first system
                         that doesn't track you. You own your data and you can do with
@@ -45,9 +45,9 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Secure</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         All components can use TLS to encrypt their communication.
-                        Additionally TLS client certificates or username/password
+                        Additionally TLS client certificates or username and password
                         combinations can be used to gate access as well as
                         apply ACLs.
                     </p>
@@ -59,7 +59,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Vendor neutral</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         A single protocol lets you control all devices in your
                         home. Bridges take care of translating
                         between Hemtjänst and vendor-specific protocols and can also
@@ -73,10 +73,11 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Real time</span>
                     </p>
-                    <p class="has-text-centered">
-                        By leveraging <a href="http://mqtt.org/">MQTT</a> all interactions through Hemtjänst are and
-                        feel real-time and immediate. Just like if you were interacting
-                        with a physical device in the real world.
+                    <p class="has-text-justified">
+                        By leveraging <a href="http://mqtt.org/">MQTT</a> all interaction
+                        feel immediate and real-time. Just like if you were interacting
+                        with a physical device in the real world. Anyone connected to
+                        the broker is immediately notified of any changes.
                     </p>
                 </div>
             </div>
@@ -96,7 +97,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Apple HomeKit</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/hemtjanst">Hemtjänst</a>,
                         the bridge, exposes as many devices as possible
                         as HomeKit accessories and is a fully functioning HomeKit
@@ -111,7 +112,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Ikea Trådfri</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/sladdlos">Sladdlos</a>
                         and its sister component <a href="https://github.com/hemtjanst/tradfri-mqtt">
                         tradfri-mqtt expose</a> devices connected to the TRÅDFRI gateway. This lets you
@@ -126,7 +127,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Rödljus</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/rodljus">Rödljus</a>
                         lets you control IR-based devices. It leverages
                         lircd and an IR-blaster to send comands. It's like pressing
@@ -140,7 +141,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Zvag</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/zvag">Zvag</a>
                         makes devices connected through Z-Wave available to
                         Hemtjänst. This can be devices like contact sensors, outlets
@@ -156,7 +157,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Sensorer</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/sensorer">Sensorer</a>
                         is a <a href="https://prometheus.io/docs/instrumenting/exporters/">
                         Prometheus exporter</a>. It exposes the data
@@ -174,7 +175,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">HallonLarm</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/hallonlarm">HallonLarm</a>
                         exposes the GPIO pins of a Raspberry Pi as
                         topics onto the MQTT broker. You can listen for events
@@ -189,7 +190,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Dammsugare</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://github.com/hemtjanst/dammsugare">Dammsugare</a>
                         lets you control a Eufy RoboVac. It leverages
                         Rödljus under the hood to send the IR commands to turn the
@@ -203,7 +204,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Flakt</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         Similar in spirit to dammsugare,
                         <a href="https://github.com/hemtjanst/flakt">flakt</a>
                         leverages Rödljus in order to be able to control a tower fan.
@@ -219,7 +220,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Fargton</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         Almost ready for prime time, Fargton emulates a Philips
                         Hue v2 bridge and API. This lets you use the Hue app to
                         control compatible Hemtjänst devices, like lightbulbs.
@@ -234,7 +235,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Bidans</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         Currently a work in progress, Bidans is a ZigBee bridge.
                         Similar to Zvag, it exposes any ZigBee connected device to
                         Hemtjänst. This should obviate the need to support different
@@ -260,7 +261,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Bibliotek</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://lib.hemtjan.st">Bibliotek</a> is a Go package
                         that implements the Hemtjänst
                         protocol as well as its discovery and announce mechanisms.
@@ -275,7 +276,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Hemtjänst-js</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         A <a href="https://github.com/hemtjanst/hemtjanst-js">TypeScript library</a>
                         implementing the Hemtjänst protocol.
                         From Node you can connect directly to the broker using
@@ -293,7 +294,7 @@
                         <p class="has-text-centered" style="padding-bottom: 10px;">
                             <span style="font-weight: bold;">Message broker</span>
                         </p>
-                        <p class="has-text-centered">
+                        <p class="has-text-justified">
                             The message broker is the central nervous system of Hemtjänst.
                             Any MQTT v3.1+ broker will do but we happen to be using
                             <a href="https://mosquitto.org/">Eclipse Mosquitto</a>.
@@ -306,7 +307,7 @@
                     <p class="has-text-centered" style="padding-bottom: 10px;">
                         <span style="font-weight: bold;">Node-RED</span>
                     </p>
-                    <p class="has-text-centered">
+                    <p class="has-text-justified">
                         <a href="https://nodered.org/">Node-RED</a> is an open source
                         programming environment for the Internet of Things. It supports
                         MQTT out of the box letting you interact with all Hemtjänst
