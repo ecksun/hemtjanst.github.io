@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
     <style type="text/css">
-    .hero.is-info {
+    .hero.is-medium {
         background: linear-gradient(
             rgba(0, 0, 0, 0.6),
             rgba(0, 0, 0, 0.6)
@@ -32,16 +32,57 @@
     </style>
 </head>
 <body>
-    <div class="hero is-info is-medium">
+    <div class="hero is-medium">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                        </a>
+                        <span class="has-text-white navbar-burger burger" data-target="navbarMenuHeroB">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenuHeroB" class="navbar-menu">
+                        <div class="navbar-end">
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined">
+                                    <span>Home</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#bridges">
+                                    <span>Bridges</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#components">
+                                    <span>Components</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-white" href="https://github.com/hemtjanst">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Source</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title">
+                <h1 class="title has-text-white">
                     Hemtjänst
                 </h1>
-                <h2 class="subtitle">
+                <h2 class="subtitle has-text-white">
                     Private, personal, home automation
                 </h2>
-                <a href="https://github.com/hemtjanst"><i class="fab fa-github"></i></i> Get the code</a>
             </div>
         </div>
     </div>
@@ -109,7 +150,7 @@
     </section>
     <hr class="hr">
     <section class="section">
-        <p class="title has-text-centered">Bridges</p>
+        <p class="title has-text-centered"><a class="has-text-black" name="bridges">Bridges</a></p>
     </section>
     <section class="section">
         <div class="container">
@@ -272,7 +313,7 @@
     </section>
     <hr class="hr">
     <section class="section">
-        <p class="title has-text-centered">Components</p>
+        <p class="title has-text-centered"><a class="has-text-black" name="components">Components</a></p>
     </section>
     <section class="section">
         <div class="container">
