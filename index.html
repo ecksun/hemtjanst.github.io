@@ -64,6 +64,11 @@
                                 </a>
                             </span>
                             <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="#demo">
+                                    <span>Demo</span>
+                                </a>
+                            </span>
+                            <span class="navbar-item">
                                 <a class="button is-white" href="https://github.com/hemtjanst">
                                     <span class="icon">
                                         <i class="fab fa-github"></i>
@@ -151,9 +156,7 @@
     </section>
     <hr class="hr">
     <section class="section">
-        <p class="title has-text-centered"><a class="has-text-black" name="bridges">Bridges</a></p>
-    </section>
-    <section class="section">
+        <p style="padding-bottom:1em;" class="title has-text-centered"><a class="has-text-black" name="bridges">Bridges</a></p>
         <div class="container">
             <div class="columns">
                 <div class="column is-3">
@@ -314,9 +317,7 @@
     </section>
     <hr class="hr">
     <section class="section">
-        <p class="title has-text-centered"><a class="has-text-black" name="components">Components</a></p>
-    </section>
-    <section class="section">
+        <p style="padding-bottom:1em;" class="title has-text-centered"><a class="has-text-black" name="components">Components</a></p>
         <div class="container">
             <div class="columns">
                 <div class="column is-2"></div>
@@ -380,6 +381,125 @@
                         devices. Use it to create any kind of automation you want.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+    <hr class="hr">
+    <section class="section">
+        <p class="title has-text-centered"><a class="has-text-black" name="demo">Demo</a></p>
+        <div class="container">
+                <div class="columns is-desktop">
+                    <div class="column is-offset-2 is-8">
+                        <p style="padding-bottom:2em;" class="has-text-justified">
+                            This is a demonstration of how to turn on a lightbulb with just an MQTT CLI.
+                            It requires minimal understanding of the Hemtjänst protocol and no knowledge
+                            of what IoT protocol the device itself is using.
+                            Libraries like <a href="https://lib.hemtjan.st">bibliotek</a>
+                            take care of the discover/announce flow and keep monitoring for device
+                            updates in the background. The whole flow is shown here for completeness.
+                            If you already know the device topics there is no need for the discover/announce
+                            flow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-6">
+                <p class="title is-5">Start by subscribing to the announce topic</p>
+                <pre><code>
+mqttcli <span class="has-text-info">sub</span> -t 'announce/#'
+                </code></pre>
+            </div>
+            <div class="column is-6">
+                <p class="title is-5">&nbsp;</p>
+                <p>Once you  <span class="has-text-info">pub</span>lish to the discover
+                    topic all devices will announce themselves
+                    to a <code>announce/$name</code> topic. By subscribing to <code>announce/#</code>
+                    we'll receive all mesages published to topics underneath <code>announce/</code>.
+                    The <code>#</code> is the MQTT equivalent of a wildcard.
+                </p>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-offset-6">
+                <p class="title is-5">Discover all devices</p>
+                <pre><code>
+mqttcli <span class="has-text-info">pub</span> -t 'discover' -r -m ''
+                </code></pre>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-7">
+                <p class="title is-5">Receive all the device announcements</p>
+                <pre><code class="lang-json">
+...
+{
+    "topic": <span class="has-text-info">"light/grp-193347"</span>,
+    "name": "Kitchen",
+    "manufacturer": "IKEA",
+    "model": "Trådfri Group",
+    "serialNumber": "193347",
+    "type": "lightbulb",
+    "lastWillID": "sladdlos-c7274f9f-471d-4674-8075-81ad4c2d31f0",
+    "feature": {
+        "brightness": {
+            "getTopic": "light/grp-193347/brightness/get",
+            "setTopic": "light/grp-193347/brightness/set"
+        },
+        "colorTemperature": {
+            "getTopic": "light/grp-193347/colorTemperature/get",
+            "setTopic": "light/grp-193347/colorTemperature/set"
+        },
+        "on": {
+            "getTopic": <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-primary">on/get"</span></strong>,
+            "setTopic": <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-danger">on/set"</span></strong>
+        }
+    }
+}
+{
+    "name": "Kitchen small_window",
+    "type": "contactSensor",
+    "manufacturer": "Telldus",
+    "model": "Device 23",
+    "feature": {
+        "contactSensorState": {}
+    }
+}
+...
+                </code></pre>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-6">
+                <p class="title is-5">Subscribe to the kitchen light on/off state</p>
+                <pre><code>
+mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-danger">'light/grp-193347/on/get'</span>
+0
+                </code></pre>
+            </div>
+            <div class="column is-6">
+                <p class="title is-5">Possible device states</p>
+                <pre><code>
+0: the device is off
+1: the device is on
+                </code></pre>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-offset-6">
+                <p class="title is-5">Turn on the kitchen light</p>
+                <pre><code>
+mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-danger">'light/grp-193347/on/set'</span> -m '1'
+                </code></pre>
+            </div>
+        </div>
+        <div class="columns is-desktop">
+            <div class="column is-6">
+                <p class="title is-5">Receive notification that the light has been turned on</p>
+                <pre><code>
+1
+                </code></pre>
             </div>
         </div>
     </section>
