@@ -413,9 +413,9 @@ mqttcli <span class="has-text-info">sub</span> -t 'announce/#'
             </div>
             <div class="column is-6">
                 <p class="title is-5">&nbsp;</p>
-                <p>Once you  <span class="has-text-info">pub</span>lish to the discover
-                    topic all devices will announce themselves
-                    to a <code>announce/$name</code> topic. By subscribing to <code>announce/#</code>
+                <p>Once you  <span class="has-text-info">pub</span>lish to the
+                    <code>discover</code> topic all devices will announce themselves
+                    to a <code>announce/&lt;id&gt;</code> topic. By subscribing to <code>announce/#</code>
                     we'll receive all mesages published to topics underneath <code>announce/</code>.
                     The <code>#</code> is the MQTT equivalent of a wildcard.
                 </p>
@@ -474,7 +474,7 @@ mqttcli <span class="has-text-info">pub</span> -t 'discover' -r -m ''
             <div class="column is-6">
                 <p class="title is-5">Subscribe to the kitchen light on/off state</p>
                 <pre><code>
-mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-danger">'light/grp-193347/on/get'</span>
+mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-primary">on/get"</span></strong>
 0
                 </code></pre>
             </div>
@@ -490,7 +490,7 @@ mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-danger">
             <div class="column is-offset-6">
                 <p class="title is-5">Turn on the kitchen light</p>
                 <pre><code>
-mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-danger">'light/grp-193347/on/set'</span> -m '1'
+mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-danger">on/set"</span></strong> -m '1'
                 </code></pre>
             </div>
         </div>
@@ -500,6 +500,26 @@ mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-danger">
                 <pre><code>
 1
                 </code></pre>
+            </div>
+        </div>
+        <div class="container">
+                <div class="columns is-desktop">
+                    <div class="column is-offset-2 is-8">
+                        <p style="padding-bottom:2em;" class="has-text-justified">
+                            One important thing to realise is that the value you receive
+                            on the <code>get</code> topic is the actual state of the device. When you
+                            publish to <code>set</code>, a bridge will then send the
+                            actual command to the bulb to turn on. Only once the light is on
+                            does a bridge publish the new state onto the <code>get</code>
+                            topic which you then receive. As such publishing onto <code>get</code>
+                            does not imply an update to <code>set</code>. Only if the device manages
+                            to achieve the new state will you get an update.
+                            <code>get</code> and <code>set</code>
+                            are a bit of a misnomer and are likely to get renamed to something
+                            like <code>current</code> and <code>desired</code>.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
