@@ -413,13 +413,13 @@
         </div>
         <div class="columns is-desktop">
             <div class="column is-6">
-                <p class="title is-5">Start by subscribing to the announce topic</p>
+                <p class="subtitle is-5">1. Start by subscribing to the announce topic</p>
                 <pre><code>
 mqttcli <span class="has-text-info">sub</span> -t 'announce/#'
                 </code></pre>
             </div>
             <div class="column is-6">
-                <p class="title is-5">&nbsp;</p>
+                <p class="subtitle is-5">&nbsp;</p>
                 <p>Once you  <span class="has-text-info">pub</span>lish to the
                     <code>discover</code> topic all devices will announce themselves
                     to a <code>announce/&lt;id&gt;</code> topic. By subscribing to <code>announce/#</code>
@@ -430,7 +430,7 @@ mqttcli <span class="has-text-info">sub</span> -t 'announce/#'
         </div>
         <div class="columns is-desktop">
             <div class="column is-offset-6">
-                <p class="title is-5">Discover all devices</p>
+                <p class="subtitle is-5">2. Discover all devices</p>
                 <pre><code>
 mqttcli <span class="has-text-info">pub</span> -t 'discover' -r -m ''
                 </code></pre>
@@ -438,7 +438,7 @@ mqttcli <span class="has-text-info">pub</span> -t 'discover' -r -m ''
         </div>
         <div class="columns is-desktop">
             <div class="column is-7">
-                <p class="title is-5">Receive all the device announcements</p>
+                <p class="subtitle is-5">3. Receive all the device announcements</p>
                 <pre><code class="lang-json">
 ...
 {
@@ -479,14 +479,14 @@ mqttcli <span class="has-text-info">pub</span> -t 'discover' -r -m ''
         </div>
         <div class="columns is-desktop">
             <div class="column is-6">
-                <p class="title is-5">Subscribe to the kitchen light on/off state</p>
+                <p class="subtitle is-5">4. Subscribe to the kitchen light on/off state</p>
                 <pre><code>
 mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-primary">on/get"</span></strong>
 0
                 </code></pre>
             </div>
             <div class="column is-6">
-                <p class="title is-5">Possible device states</p>
+                <p class="subtitle is-5">Possible device states</p>
                 <pre><code>
 0: the device is off
 1: the device is on
@@ -495,7 +495,7 @@ mqttcli <span class="has-text-info">sub</span> -t <span class="has-text-info">"l
         </div>
         <div class="columns is-desktop">
             <div class="column is-offset-6">
-                <p class="title is-5">Turn on the kitchen light</p>
+                <p class="subtitle is-5">5. Turn on the kitchen light</p>
                 <pre><code>
 mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-info">"light/grp-193347/</span><strong><span class="has-text-danger">on/set"</span></strong> -m '1'
                 </code></pre>
@@ -503,7 +503,7 @@ mqttcli <span class="has-text-info">pub</span> -t <span class="has-text-info">"l
         </div>
         <div class="columns is-desktop">
             <div class="column is-6">
-                <p class="title is-5">Receive notification that the light has been turned on</p>
+                <p class="subtitle is-5">6. Receive notification that the light has been turned on</p>
                 <pre><code>
 1
                 </code></pre>
